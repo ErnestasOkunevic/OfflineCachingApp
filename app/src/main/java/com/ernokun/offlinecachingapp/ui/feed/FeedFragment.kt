@@ -44,6 +44,7 @@ class FeedFragment : Fragment() {
                 is Resource.Error -> {
                     toggleProgressBarVisibility(false)
                     showToastMessage("Failed to refresh data: ${resource.message}")
+                    adapter.submitList(resource.data)
                 }
             }
         }
